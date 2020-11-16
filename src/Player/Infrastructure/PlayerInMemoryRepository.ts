@@ -1,5 +1,5 @@
 import Player from "../Domain/Player";
-import PlayerRepository from "../Domain/PlayerRespository";
+import PlayerRepository from "../Domain/PlayerRepository";
 
 export default class PlayerInMemoryRepository implements PlayerRepository {
   private store :Player[] = []

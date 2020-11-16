@@ -1,6 +1,6 @@
 import { Token, TokenType } from "../../Token";
 import Player from "../Domain/Player";
-import PlayerRepository from "../Domain/PlayerRespository";
+import PlayerRepository from "../Domain/PlayerRepository";
 import PlayerInMemoryRepository from "../Infrastructure/PlayerInMemoryRepository";
 
 export default class PlayerService {
