@@ -1,7 +1,7 @@
-const readline = require('readline');
+import * as readline from 'readline';
 
 export default class Keyboard {
-  private input :any
+  private input; 
 
   public constructor () {
     this.input = readline.createInterface({
@@ -10,7 +10,7 @@ export default class Keyboard {
     });
   }
 
-  public read() {
+  public read() :Promise<string> {
     return new Promise<string>(resolve => {
       this.input.on('line', (answer: string) => {
         this.input.close();

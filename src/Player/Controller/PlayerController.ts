@@ -7,13 +7,14 @@ export default class PlayerController {
     this.playerService = new PlayerService();
   }
 
-  async create(name: string, playerNumber : number) {
+  create(name: string, playerNumber : number) :void {
     const id :string =  new Date().getTime().toString(16);
 
     this.playerService.create(id, name, playerNumber)
   }
 
-  public index() :any {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  index() :any {
     return this.playerService.all();
   }
 }

@@ -14,7 +14,7 @@ class Main {
   }
 
   private async setupPlayers() {
-    const MAX_PLAYERS :number = 2;
+    const MAX_PLAYERS = 2;
 
     do {
       puts('Whats your name?')

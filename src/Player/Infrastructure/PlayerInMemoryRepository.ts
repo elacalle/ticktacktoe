@@ -4,13 +4,13 @@ import PlayerRepository from "../Domain/PlayerRepository";
 export default class PlayerInMemoryRepository implements PlayerRepository {
   private store :Player[] = []
 
-  save(object: any) {
+  save(object :Player) :void {
     this.store.push(object);
   }
 
-  get(id: string) {
-    const player = this.store.find((item :any) => {
-      return item.id === id
+  get(id: string) :Player {
+    const player = this.store.find((item :Player) => {
+      return item.equals(id);
     });
 
     return player;
