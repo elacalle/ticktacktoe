@@ -31,6 +31,8 @@ export default class PlayerService {
   }
 
   public switch() :void {
-    this.currentPlayer = this.repository.query((player :Player) => { return !player.equals(this.currentPlayer); })[0];
+    const [nextPlayer] = this.repository.query((player :Player) => { return !player.equals(this.currentPlayer); });
+
+    this.currentPlayer = nextPlayer;
   }
 }

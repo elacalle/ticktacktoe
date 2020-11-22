@@ -9,7 +9,7 @@ export default class PlayerInMemoryRepository implements PlayerRepository {
   }
 
   get(id: string) :Player {
-    const player :Player = this.query((player :Player) => {return player.equalsId(id);})[0];
+    const [player] = this.query((player :Player) => {return player.equalsId(id);});
 
     return player;
   }
