@@ -8,12 +8,8 @@ export default class PlayerInMemoryRepository implements PlayerRepository {
     this.store.push(player);
   }
 
-  get(id: string) :Player {
-    const player = this.store.find((player :Player) => {
-      return player.equals(id);
-    });
-
-    return player;
+  get(id: number) :Player {
+    return this.store[id];
   }
 
   all(): Player[] {

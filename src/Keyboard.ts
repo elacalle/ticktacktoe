@@ -10,13 +10,13 @@ export default class Keyboard {
     });
   }
 
-  public read() :Promise<string> {
+  public read(prompt = '') :Promise<string> {
     return new Promise<string>(resolve => {
-      this.input.on('line', (answer: string) => {
+      this.input.question(prompt, (answer: string) => {
         this.input.close();
 
         resolve(answer);
       });
-    })
+    });
   }
 }
