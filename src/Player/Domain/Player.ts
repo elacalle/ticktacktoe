@@ -11,7 +11,11 @@ export default class Player {
     this.token = token;
   }
 
-  equals(id :string) :boolean {
+  equalsId(id :string) :boolean {
     return this.id === id;
+  }
+
+  equals(player :Player) :boolean {
+    return this === player;
   }
 }

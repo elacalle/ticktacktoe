@@ -14,20 +14,30 @@ export default class PlayerController {
     return this.service.all();
   }
 
-  create(name: string) :void {
+  create(name: string) :string {
     if(!(this.index().length < this.MAX_PLAYERS)) {
       throw 'Player number exceeded';
     }
 
     const id :string =  new Date().getTime().toString(16);
     this.service.create(id, name);
+
+    return id;
   }
 
-  get(id :number) :Player {
+  get(id :string) :Player {
     return this.service.get(id);
   }
 
   playersReady() :boolean {
     return this.index().length === this.MAX_PLAYERS; 
   }
+
+  current() :Player {
+    return this.service.current();
+  }
+
+  switch() :void {
+    this.service.switch();
+  }  
 }

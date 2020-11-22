@@ -9,7 +9,6 @@ export default class Coord {
     this.y = y;
   }
 
-
   valid() :boolean {
     return this.validCoord(this.x) && this.validCoord(this.y);
   }

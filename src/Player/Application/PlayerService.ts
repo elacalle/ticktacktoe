@@ -5,22 +5,32 @@ import PlayerInMemoryRepository from "../Infrastructure/PlayerInMemoryRepository
 
 export default class PlayerService {
   private repository :PlayerRepository
+  private currentPlayer :Player;
 
   public constructor(repository :PlayerRepository = new PlayerInMemoryRepository) {
     this.repository = repository;
   }
 
   public create(id :string, name :string) : void {
-
     const tokenType = this.all().length !== 1 ? TokenType.Eks : TokenType.Ways; 
-    this.repository.save(new Player(id, name, tokenType));
+    this.currentPlayer = new Player(id, name, tokenType);
+
+    this.repository.save(this.currentPlayer);
   }
 
-  public get(id :number) :Player {
+  public get(id :string) :Player {
     return this.repository.get(id);
   }
 
   public all() :Player[] {
     return this.repository.all();
+  }
+
+  public current() :Player {
+    return this.currentPlayer;
+  }
+
+  public switch() :void {
+    this.currentPlayer = this.repository.query((player :Player) => { return !player.equals(this.currentPlayer); })[0];
   }
 }

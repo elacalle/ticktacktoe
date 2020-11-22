@@ -8,8 +8,16 @@ export default class PlayerInMemoryRepository implements PlayerRepository {
     this.store.push(player);
   }
 
-  get(id: number) :Player {
-    return this.store[id];
+  get(id: string) :Player {
+    const player :Player = this.query((player :Player) => {return player.equalsId(id);})[0];
+
+    return player;
+  }
+
+  query(callback :any): Player[] {
+    const storeQuery :Player[] = this.store.filter(player => {return callback(player);});
+
+    return storeQuery;
   }
 
   all(): Player[] {

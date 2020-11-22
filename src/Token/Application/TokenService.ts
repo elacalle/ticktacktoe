@@ -1,4 +1,4 @@
-import TokenRepository from "../Domain/BoardRespository";
+import TokenRepository from "../Domain/TokenRespository";
 import { Token, TokenType } from "../Domain/Token";
 import TokenInMemoryRepository from "../Infrastructure/TokenInMemoryRepository";
 

@@ -1,5 +1,5 @@
 import { Token } from "../Domain/Token";
-import TokenRepository from "../Domain/BoardRespository";
+import TokenRepository from "../Domain/TokenRespository";
 
 export default class TokenInMemoryRepository implements TokenRepository {
   private store :Token[] = [];
